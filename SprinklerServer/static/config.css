@@ -1,0 +1,8 @@
+form {
+    margin-top: 10px;
+}
+
+form textarea input{
+    margin: auto;
+    vertical-align: middle;
+}

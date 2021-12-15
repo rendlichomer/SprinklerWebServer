@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Configuration
+{% endblock title %}
+
+{% block navbar %}
+        <a href="/">Home</a>
+        <a class="active" href="/config">Configuration</a>
+{% endblock navbar %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='config.css') }}">
+    <form action="#" method="post">
+        <textarea id="config" name="config" rows="20" cols="50">{{ json }}</textarea>
+        <br>
+        <input class="button buttonSave" type="submit" value="Save">
+    </form>
+    <script type="text/javascript" src="{{ url_for('static', filename='prettify.js') }}"></script>
+{% endblock content %}

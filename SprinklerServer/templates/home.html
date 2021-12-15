@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block navbar %}
+    <a class="active" href="/">Home</a>
+    <a href="/config">Configuration</a>
+{% endblock navbar %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+    <div class="grid-container">
+        {% for valve in valves %}
+            <div class="valve grid-item">
+                {% if 'OFF' == valve.status %}
+                    <h1>Valve {{ valve.id }}</h1>
+                    <h2>OFF</h2>
+                    <!-- <button class="button buttonOFF">OFF</button> -->
+                    <a href="{{ valve.id }}/ON" class="button buttonOFF">OFF</a>
+                {% else %}
+                    <h1>Valve {{ valve.id }}</h1>
+                    <h2>ON</h2>
+                    <!-- <button class="button buttonON">ON</button> -->
+                    <a href="{{ valve.id }}/OFF" class="button buttonON">ON</a>
+                {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
